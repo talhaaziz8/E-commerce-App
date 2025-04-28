@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: easyshop-cert
+  namespace: easyshop
+spec:
+  secretName: easyshop-tls-secret  # Matches the `secretName` in your Ingress
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: easyshop.buildwithtalha.pro
+  dnsNames:
+    - easyshop.buildwithtalha.pro
